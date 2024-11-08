@@ -22,6 +22,10 @@ const PokemonDetail: FC<PokemonDetailProps> = ({ params }) => {
     const { addPokemon } = usePokemonContext();
     const router = useRouter();
 
+    const handleBack = () => {
+        router.push("/");
+    };
+
     const handleSavePokemon = () => {
         addPokemon({
             name: data.name,
@@ -35,7 +39,10 @@ const PokemonDetail: FC<PokemonDetailProps> = ({ params }) => {
 
     return (
         <div className="mx-auto flex max-w-sm flex-col items-center p-4">
-            <h1 className="text-center text-4xl font-bold">Pokemon Details</h1>
+            <button onClick={handleBack} className="self-start rounded-md bg-red-500 px-4">
+                Back
+            </button>
+            <h1 className="mt-5 text-center text-4xl font-bold">Pokemon Details</h1>
             <h1 className="mt-20 text-3xl font-bold">{data.name}</h1>
             <Image
                 src={data.sprites.front_default}
