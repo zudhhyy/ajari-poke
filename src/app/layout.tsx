@@ -2,6 +2,7 @@ import { FC, ReactNode } from "react";
 import localFont from "next/font/local";
 
 import QueryProvider from "@/components/providers/QueryProvider";
+import { PokemonProvider } from "@/context/PokemonContext";
 
 import "./globals.css";
 
@@ -20,11 +21,13 @@ const geistMono = localFont({
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <QueryProvider>
-            <html lang="en">
-                <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                    {children}
-                </body>
-            </html>
+            <PokemonProvider>
+                <html lang="en">
+                    <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+                        {children}
+                    </body>
+                </html>
+            </PokemonProvider>
         </QueryProvider>
     );
 };

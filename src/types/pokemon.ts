@@ -3,6 +3,11 @@ export interface PokemonListType {
     url: string;
 }
 
+export interface MyPokemonType {
+    name: string;
+    image: string;
+}
+
 export interface PokemonDetailType {
     abilities: Ability[];
     base_experience: number;
