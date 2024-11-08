@@ -4,6 +4,7 @@ import { FC } from "react";
 
 import PokemonCard from "@/components/cards/PokemonCard";
 import PaginationControls from "@/components/paginations/PaginationControls";
+import Loading from "@/components/Loading/Loading";
 
 import { usePokemonList } from "@/hooks/pokemon/usePokemonList";
 import { PokemonListType } from "@/types/pokemon";
@@ -18,7 +19,7 @@ const Home: FC<HomeProps> = ({ searchParams }) => {
 
     const { data: pokemonList, isLoading, error } = usePokemonList(offset);
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Loading />;
     if (error) return <p>Something went wrong: {error.message}</p>;
 
     return (
